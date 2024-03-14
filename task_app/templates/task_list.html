@@ -27,7 +27,7 @@
             <p>Title</p>
             <p>Description</p>
             <p>Category</p>
-            <p>Date</p>
+            <p>Created Date</p>
             <p></p>
         </div>
 
@@ -35,7 +35,7 @@
             <div class="row">
                 <p>{{task.title | title}}</p>
                 <p>{{ task.description }}</p>
-                <p>{{ task.category }}</p>
+                <p>{{ task.category | title }}</p>
                 <p>{{ task.created }}</p>
                 <p style="display: flex; gap: 30px;">
                     <a href="{% url 'update_task' task.id %}">

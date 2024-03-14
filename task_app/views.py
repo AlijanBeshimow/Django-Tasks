@@ -66,6 +66,9 @@ def create_task(request):
         if form.is_valid():
             task = form.save(commit=False)
             task.user = request.user
+            if form.cleaned_data['category'] == 'Other':
+                other_category = request.POST.get('other_category', None)
+                task.category = other_category
             task.save()
             return redirect('task_list')
     else:
@@ -83,7 +86,7 @@ def update_task(request, task_id):
             form.save()
             return redirect('task_list')
     else:
-        form = TaskForm(instance=task)
+        form = TaskForm(instance=task, initial={'category': task.category})
     return render(request, 'task_update.html', {'form': form})
 
 
