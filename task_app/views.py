@@ -2,29 +2,10 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
-from rest_framework import generics
-from rest_framework.permissions import IsAuthenticated
-from .serializers import TaskSerializer
 from django.contrib import messages
 from .models import Task
 from django.db.models import Q
 from .forms import TaskForm, LoginForm
-
-
-# API
-class TaskListAPIView(generics.ListCreateAPIView):
-    queryset = Task.objects.all()
-    serializer_class = TaskSerializer
-    permission_classes = [IsAuthenticated]
-
-    def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
-
-
-class TaskDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Task.objects.all()
-    serializer_class = TaskSerializer
-    permission_classes = [IsAuthenticated]
 
 
 # LOGIN
@@ -85,9 +66,6 @@ def create_task(request):
         if form.is_valid():
             task = form.save(commit=False)
             task.user = request.user
-            if form.cleaned_data['category'] == 'Other':
-                other_category = request.POST.get('other_category', None)
-                task.category = other_category
             task.save()
             return redirect('task_list')
     else:

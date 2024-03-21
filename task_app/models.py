@@ -4,12 +4,13 @@ from django.contrib.auth.models import User
 
 def get_category_choices():
     return [
+        ('Home', 'Home'),
         ('Job', 'Job'),
         ('Shop', 'Shop'),
         ('Travel', 'Travel'),
         ('Sport', 'Sport'),
+        ('Cleaning', 'Cleaning'),
         ('Notes', 'Notes'),
-        ('Other', 'Other'),
     ]
 
 

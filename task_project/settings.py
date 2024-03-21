@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'task_app.apps.TaskAppConfig',
-    'rest_framework',
 ]
 
 LOGIN_URL = 'login'
