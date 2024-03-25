@@ -17,11 +17,7 @@
         <textarea name="description" id="id_description" rows="5"></textarea>
 
         <label for="id_category">Category:</label>
-        <select name="category" id="id_category">
-            {% for choice in form.category.field.choices %}
-                <option value="{{ choice.0 }}">{{ choice.1 }}</option>
-            {% endfor %}
-        </select>
+        <input type="text" name="category" id="id_category"></input>
 
         
         <button type="submit" class="button">Create</button>

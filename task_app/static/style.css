@@ -32,7 +32,8 @@ a {
     font-weight: 600;
 }
 
-.button {
+.search-button {
+    margin-left: 10px;
     border: 1px solid #757575;
     background-color: #FFF;
     color: #EB796F;
@@ -42,6 +43,19 @@ a {
     cursor: pointer;
     text-decoration: none;
 }
+
+.button {
+    margin-top: 10px;
+    border: 1px solid #757575;
+    background-color: #FFF;
+    color: #EB796F;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
 
 
 .task-list {
@@ -121,7 +135,7 @@ textarea {
 }
 
 #id_description {
-    width: 200px;
+    width: 90%;
     height: 100px;
     outline: none;
 }

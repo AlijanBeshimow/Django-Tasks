@@ -14,6 +14,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='task',
             name='category',
-            field=models.CharField(choices=task_app.models.get_category_choices, max_length=20),
+            field=models.CharField(max_length=20),
         ),
     ]
